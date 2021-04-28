@@ -21,8 +21,8 @@ if(!config.get('jwtPrivateKey')){
 }
 
 // winston.add(winston.transports.Console,{});
-winston.add(winston.transports.File,{filename:'logfile.log'})
-winston.add(winston.transports.MongoDB,{db:'mongodb://localhost:27017/babystep'});
+// winston.add(winston.transports.File,{filename:'logfile.log'})
+// winston.add(winston.transports.MongoDB,{db:'mongodb://localhost:27017/babystep'});
 
 app.use('/api/users/',users);
 app.use(logErrors);
@@ -32,7 +32,7 @@ app.use('/api/forgot-password',forgot_password);
 
 
 
-mongoose.connect(database.connectionString, { useNewUrlParser: true },(error)=>{
+mongoose.connect(database.connectionString,{ useUnifiedTopology: true },(error)=>{
     if(!error){
         console.log('Connected to mongodb..');
     }else{

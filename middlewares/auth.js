@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 module.exports = function(req,res,next){
     var token = req.header('x_auth_token');
+    console.log('header ------------1',req.header)
+    console.log('header ------------2',req.header('x_auth_token'))
     if(token){
        
         try{
